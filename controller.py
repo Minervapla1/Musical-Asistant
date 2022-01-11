@@ -17,7 +17,7 @@ from metronome import metro_init
 from tuner import tuner_init
 from recording_list import rec_list_init
 from recorder import record_init
-# from triadas import triadas_init
+
 
 
 
