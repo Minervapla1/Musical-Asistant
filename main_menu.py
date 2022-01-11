@@ -54,6 +54,4 @@ def main_init(screen):
                     #rec_list_init(screen)
                     print ("Recorder")
                     return 3
-#                 if click_in_button(back2_button, pos):              
-#                     print ("back to tuner")
-#                     return 2#devuelve tuner(init)
+
