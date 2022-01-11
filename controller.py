@@ -66,35 +66,7 @@ while True:
         # Open tuner
         
         tuner_init(screen)
-#         tuner=tuner_init(screen)
-#         while tuner:
-#              for action in pygame.event.get():
-#                  if (action.type is MOUSEBUTTONUP):
-#                      pos = pygame.mouse.get_pos()
-#                      if click_in_button(triada_button, pos):
-#                          triadas_init(screen)
-#                          triadas=triadas_init(screen)
-#                          while triadas:
-#                              for action in pygame.event.get():
-#                                  if (action.type is MOUSEBUTTONUP):
-#                                      pos = pygame.mouse.get_pos()
-#                                      if click_in_button(back2_button, pos):
-#                                          tuner_init(screen)
-            
-#                          return triadas
-# #         return tuner                
-#      elif(navi==4):
-#          triadas_init(screen)
-#          triadas=triadas_init(screen)
-#              while triadas:
-#                  for action in pygame.event.get():
-#                      if (action.type is MOUSEBUTTONUP):
-#                          pos = pygame.mouse.get_pos()
-#                              if click_in_button(back2_button, pos):
-#                                  tuner_init(screen)
-#                              else:
-#                                  triadas_init(screen)
-#              return triadas
+        
     else:
         # Open recordings list
         new_rec = rec_list_init(screen)
