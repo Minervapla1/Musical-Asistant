@@ -74,7 +74,7 @@ def triadas_init(screen):
     global note_ind
     global note_ind0
     global note_ind2
-    global note_ind3#funciona graxcias a que le puse global creo
+    global note_ind3
     global note_ind4
     global note_ind5
     global note_ind6
@@ -104,26 +104,7 @@ def triadas_init(screen):
     screen.blit(text_surface, freq_button)
     
     minus_button = show_botton(screen, "-", (100,210), (30,30), white, button_font)
-    
-#     text_surface = button_font.render(note0, True, black)
-#     note_button = text_surface.get_rect(center=(80,30))
-#     screen.blit(text_surface, note_button)
-# 
-#     text_surface = button_font.render(str(frequency0) + " Hz", True, black)
-#     hertz_button = text_surface.get_rect(center=(130,30))
-#     screen.blit(text_surface, hertz_button)
-#     
-#     
-#     text_surface = button_font.render(note2, True, black)
-#     note_button = text_surface.get_rect(center=(80,50))
-#     screen.blit(text_surface, note_button)
-# 
-#     text_surface = button_font.render(str(frequency2) + " Hz", True, black)
-#     hertz_button = text_surface.get_rect(center=(120,50))
-#     screen.blit(text_surface, hertz_button)
-#     pygame.display.flip()       # display workspace on screen
-    
-#     navi = main_init(screen)    # Check for button presses
+
     while True:
         for action in pygame.event.get():
             if (action.type is MOUSEBUTTONUP):
@@ -132,18 +113,17 @@ def triadas_init(screen):
                 if click_in_button(back2_button, pos) :
                     # Return to main menu
                     print ("Back2")
-#                      screen.fill(white)
-#                     navi==2
-                    #tuner_init(screen)
-#                     return True
+
+
+                   
                     screen.fill(white)
                     frequency0=440
                     
-                    note_ind0=39 #no hace falta porque esto depende de la frecuencia
+                    note_ind0=39 
                     
                     frequency2=554.37
                     note_ind2=35
-#                     
+                     
                     frequency3=523.25
                     note_ind3=36
                      
@@ -152,16 +132,12 @@ def triadas_init(screen):
                     
                     frequency5=622.25#diminished
                     note_ind5=32
-#                     
+                     
                     frequency6=698.46
                     note_ind6=30
                     
-                    
-                    
-#                     frequency2= 554.37
-#                     note = "A" # initial note
-#                     note2= "C#"
-                    update_freq(screen, frequency)#creo q no sirve porq utiliza frecuency, no frecuency0
+                                
+                    update_freq(screen, frequency)
                     listen_button = show_botton(screen, "Start Listening", (160, 110), (120,40), white, button_font)
                     play_button = show_botton(screen, "Play Note", (160,160), (80,40), white, button_font)
                     triada_button = show_botton(screen, "Triada", (40,40), (50,30), white, button_font)
@@ -171,40 +147,9 @@ def triadas_init(screen):
                     text_surface = button_font.render("Frequency", True, black)
                     freq_button = text_surface.get_rect(center=(160,210))
                     screen.blit(text_surface, freq_button)
-#                     text_surface = button_font.render(note, True, black)
-#                     note_button = text_surface.get_rect(center=(120,30))
-#                     screen.blit(text_surface, note_button)
-# 
-#                     text_surface = button_font.render(str(frequency) + " Hz", True, black)
-#                     hertz_button = text_surface.get_rect(center=(200,30))
-#                     screen.blit(text_surface, hertz_button)
-#                     update_freq(screen, frequency)
-#                     update_freq2(screen, frequency2)
+
                     pygame.display.flip()
-#                     update_freq2(screen, frequency2)
-#                     while True:
-#                         for action in pygame.event.get():
-#                             if (action.type is MOUSEBUTTONUP):
-#                                 pos = pygame.mouse.get_pos()    
-#                                 if click_in_button(listen_button, pos):
-#                                     print ("Listening")
-#                                     start_listening(screen)
-#                                     update_freq0(screen,frequency0)
-#                                 if click_in_button(play_button, pos):
-#                                 # Play the specified note
-#                                     print ("Play note")
-#                                     play_note0(screen, frequency0)
-#                                 
-#                                 if click_in_button(back_button, pos):
-#                                     # Return to main menu
-#                                     print ("Back")
-#                                     frequency= 440
-#                                     frequency2= 554.37
-#                                     return True
-#                                     return True
-#                                 else:
-#                                     return False
-#                    
+
                     
                     return True
                     
@@ -235,91 +180,32 @@ def triadas_init(screen):
                     note_ind6 = min(note_ind6+1,len(note_thrsh)-9)
                     frequency6 = note_freqs[note_ind6]
                     if (root==True):
-#                         note_ind0 = min(note_ind0+1,len(note_thrsh)-1)
-#                         frequency0 = note_freqs[note_ind0]
+
                         update_freq0(screen, frequency0)
                     
 #                     El que más limita es la tónica en este caso
                     if (tercera==True):
 
-#                         note_ind2 = min(note_ind2+1,len(note_thrsh)-5)
-#                         frequency2 = note_freqs[note_ind2]
                         update_freq2(screen, frequency2)
+    
                     if (terceramenor==True):
                         
-#                         note_ind3 = min(note_ind3+1,len(note_thrsh)-4)
-#                         frequency3 = note_freqs[note_ind3]
                         update_freq3(screen, frequency3)
+    
                     if (quintaperfecta==True):
                     
-#                         note_ind4 = min(note_ind4+1,len(note_thrsh)-8)
-#                         frequency4 = note_freqs[note_ind4]
                         update_freq4(screen, frequency4)
+                    
                     if (quintadisminuida==True):                    
-#                         note_ind5 = min(note_ind5+1,len(note_thrsh)-7)
-#                         frequency5 = note_freqs[note_ind5]
+                        
                         update_freq5(screen, frequency5)
+                        
                     if (quintaaumentada==True):                    
-#                         note_ind6 = min(note_ind6+1,len(note_thrsh)-9)
-#                         frequency6 = note_freqs[note_ind6]
+
                         update_freq6(screen, frequency6)
 
 
-#                     # Decrease the frequency of the note to play
-#                     print ("-")
-#                     note_ind0 = min(note_ind0+1,len(note_thrsh)-1)
-#                     frequency0 = note_freqs[note_ind0]
-#                     update_freq0(screen, frequency0)
-#                     if(tercera== True):
-#                         note_ind2 = min(note_ind2+1,len(note_thrsh)-5)# para que el tope sea 4 semitonos por encima de la tónica
-#                         frequency2 = note_freqs[note_ind2]
-#                         update_freq2(screen, frequency2)
-#                     
-#                     if(terceramenor== True):
-#                         note_ind3 = min(note_ind3+1,len(note_thrsh)-4)# para que el tope sea 3 semitonos por encima de la tónica
-#                         frequency3 = note_freqs[note_ind3]
-#                         update_freq3(screen, frequency3)
-#                     if(quintaperfecta==True):
-#                         note_ind4 = min(note_ind4+1,len(note_thrsh)-8)# para que el tope sea 7 semitonos por encima de la tónica
-#                         frequency4 = note_freqs[note_ind4]
-#                         update_freq4(screen, frequency4)
-#                         if(tercera== True):
-#                             note_ind2 = min(note_ind2+1,len(note_thrsh)-5)# para que el tope sea 4 semitonos por encima de la tónica
-#                             frequency2 = note_freqs[note_ind2]
-#                             update_freq2(screen, frequency2)
-#                     
-#                         if(terceramenor== True):
-#                             note_ind3 = min(note_ind3+1,len(note_thrsh)-4)# para que el tope sea 3 semitonos por encima de la tónica
-#                             frequency3 = note_freqs[note_ind3]
-#                             update_freq3(screen, frequency3)
-#                         
-#                         
-#                     if(quintadisminuida==True):
-#                         note_ind5 = min(note_ind5+1,len(note_thrsh)-7)# para que el tope sea 6 semitonos por encima de la tónica
-#                         frequency5 = note_freqs[note_ind5]
-#                         update_freq5(screen, frequency5)
-#                         if(tercera== True):
-#                             note_ind2 = min(note_ind2+1,len(note_thrsh)-5)# para que el tope sea 4 semitonos por encima de la tónica
-#                             frequency2 = note_freqs[note_ind2]
-#                             update_freq2(screen, frequency2)
-#                     
-#                         if(terceramenor== True):
-#                             note_ind3 = min(note_ind3+1,len(note_thrsh)-4)# para que el tope sea 3 semitonos por encima de la tónica
-#                             frequency3 = note_freqs[note_ind3]
-#                             update_freq3(screen, frequency3)
-#                     if(quintaaumentada==True):
-#                         note_ind6 = min(note_ind6+1,len(note_thrsh)-9)# para que el tope sea 8 semitonos por encima de la tónica
-#                         frequency6 = note_freqs[note_ind6]
-#                         update_freq6(screen, frequency6)
-#                         if(tercera== True):
-#                             note_ind2 = min(note_ind2+1,len(note_thrsh)-5)# para que el tope sea 4 semitonos por encima de la tónica
-#                             frequency2 = note_freqs[note_ind2]
-#                             update_freq2(screen, frequency2)
-#                     
-#                         if(terceramenor== True):
-#                             note_ind3 = min(note_ind3+1,len(note_thrsh)-4)# para que el tope sea 3 semitonos por encima de la tónica
-#                             frequency3 = note_freqs[note_ind3]
-#                             update_freq3(screen, frequency3)
+
                         
                     
                 if click_in_button(plus_button, pos):
@@ -345,110 +231,38 @@ def triadas_init(screen):
                     note_ind6 = max(note_ind6-1,0)# para que aumente el quinta aumentada 1 semitono y que cuando llegue al 0 semitono como másximo pues se lleva 0 semitonoscon la 5taaumentada,que es la primera frecuencia de la lista
                     frequency6 = note_freqs[note_ind6]
                     if (root==True):
-#                         note_ind0 = max(note_ind0-1,8)# para que aumente el root 1 semitono y que cuando llegue al 9 semitono se pare y asi la 5taaumentada pueda ser la primera frecuencia del lista
-#                         frequency0 = note_freqs[note_ind0]
+
                         update_freq0(screen, frequency0)
-#                     la tercera respecto de la aumentada está a -4semitonos
+                        
+#                 la tercera respecto de la aumentada está a -4semitonos
                     if (tercera==True):
-#                         note_ind2 = max(note_ind2-1,4)# para que aumente la terecra 1 semitono y que llegue al 4 semitono como maximo pues se lleva 4 semitonos con la 5a aumentada
-#                         frequency2 = note_freqs[note_ind2]
+
                         update_freq2(screen, frequency2)
-#                   la tercera menor respecto de la aumentada está a -5semitonos
+            
+#                 la tercera menor respecto de la aumentada está a -5semitonos
                     if (terceramenor==True):
-#                         note_ind3 = max(note_ind3-1,5)# para que aumente el root 1 semitono y que cuando llegue al 9 semitono se pare y asi la 5taaumentada pueda ser la primera frecuencia del lista
-#                         frequency3 = note_freqs[note_ind3]
+
                         update_freq3(screen, frequency3)
-#                   la quinta justa respecto de la aumentada está a -1semitonos
+            
+#                 la quinta justa respecto de la aumentada está a -1semitonos
+
                     if (quintaperfecta==True):           
-#                         note_ind4 = max(note_ind4-1,1)# para que aumente el root 1 semitono y que cuando llegue al 9 semitono se pare y asi la 5taaumentada pueda ser la primera frecuencia del lista
-#                         frequency4 = note_freqs[note_ind4]
-                        update_freq4(screen, frequency4)                
-#                   la 5disminuida respecto de la aumentada está a -2semitonos
+
+                        update_freq4(screen, frequency4)    
+            
+#                 la 5disminuida respecto de la aumentada está a -2semitonos
                     if (quintadisminuida==True):                    
-#                         note_ind5 = max(note_ind5-1,2)# para que aumente el root 1 semitono y que cuando llegue al 9 semitono se pare y asi la 5taaumentada pueda ser la primera frecuencia del lista
-#                         frequency5 = note_freqs[note_ind5]
-                        update_freq5(screen, frequency5)                     
-#                   la 5aumentada respecto de la aumentada está a -0semitonos
+
+                        update_freq5(screen, frequency5)  
+            
+#                 la 5aumentada respecto de la aumentada está a -0semitonos
                     if (quintaaumentada==True):                    
-#                         note_ind6 = max(note_ind6-1,0)# para que aumente el root 1 semitono y que cuando llegue al 9 semitono se pare y asi la 5taaumentada pueda ser la primera frecuencia del lista
-#                         frequency6 = note_freqs[note_ind6]
-                        update_freq6(screen, frequency6)                     
-                     
-                     
-#                     note_ind0 = max(note_ind0-1,0)# para que aumente el root 1 semitono o si no puede más devuelva la 1era posición del array
-#                     frequency0 = note_freqs[note_ind0]
-#                     update_freq0(screen, frequency0)
-#                     if(tercera== True):
-#                         note_ind0 = max(note_ind0-1,4)# para que el tope sea 4 semitonos por debajo de la tónica(estando la tónica en posicion 0)
-#                         frequency0 = note_freqs[note_ind0]
-#                         update_freq0(screen, frequency0)
-#                         note_ind2 = max(note_ind2-1,0)
-#                         frequency2 = note_freqs[note_ind2]
-#                         update_freq2(screen, frequency2)
-#                         
-#                     if(terceramenor== True):
-#                         note_ind0 = max(note_ind0-1,3)# para que el tope sea 3 semitonos por debajo de la tónica(estando la tónica en posicion 0)
-#                         frequency0 = note_freqs[note_ind0]
-#                         update_freq0(screen, frequency0)
-#                         note_ind3 = max(note_ind3-1,0)
-#                         frequency3 = note_freqs[note_ind3]
-#                         update_freq3(screen, frequency3)
-#                         
-#                     if(quintaperfecta== True):
-#                         note_ind0 = max(note_ind0-1,7)# para que el tope de la tónica sea 7 semitonos por debajo de la quinta(estando la quinta en posicion 0)
-#                         frequency0 = note_freqs[note_ind0]
-#                         update_freq0(screen, frequency0)
-#                         
-#                         note_ind4 = max(note_ind4-1,0)
-#                         frequency4 = note_freqs[note_ind4]
-#                         update_freq4(screen, frequency4)
-#                         if(terceramenor== True):
-#                             note_ind3 = max(note_ind3-1,4)#para que el tope de la 3menor sea 4 semitonos por debajo de la quinta
-#                             frequency3 = note_freqs[note_ind3]
-#                             update_freq3(screen, frequency3)
-#                         if(tercera== True):                        
-#                             note_ind2 = max(note_ind2-1,3)#para que el tope de la 3 sea 3 semitonos por debajo de la quinta
-#                             frequency2 = note_freqs[note_ind2]
-#                             update_freq2(screen, frequency2)
-#                     if(quintadisminuida== True):
-#                         note_ind0 = max(note_ind0-1,6)# para que el tope de la tónica sea 6 semitonos por debajo de la quintadisminuida(estando la quintadisminuida en posicion 0)
-#                         frequency0 = note_freqs[note_ind0]
-#                         update_freq0(screen, frequency0)
-#                         
-#                         note_ind5 = max(note_ind5-1,0)
-#                         frequency5 = note_freqs[note_ind5]
-#                         update_freq5(screen, frequency5)
-#                         if(terceramenor== True):
-#                             note_ind3 = max(note_ind3-1,3)#para que el tope de la 3menor sea 4 semitonos por debajo de la quinta
-#                             frequency3 = note_freqs[note_ind3]
-#                             update_freq3(screen, frequency3)
-#                         if(tercera== True):  #caso que nunca va a pasar para formar acorde porque no existe pero si que se puede pulsar si se tiene curiosidad                      
-#                             note_ind2 = max(note_ind2-1,2)#para que el tope de la 3 sea 3 semitonos por debajo de la quinta
-#                             frequency2 = note_freqs[note_ind2]
-#                             update_freq2(screen, frequency2)       
-#                     if(quintaaumentada== True):
-#                         note_ind0 = max(note_ind0-1,8)# para que el tope de la tónica sea 6 semitonos por debajo de la quintadisminuida(estando la quintadisminuida en posicion 0)
-#                         frequency0 = note_freqs[note_ind0]
-#                         update_freq0(screen, frequency0)
-#                         
-#                         note_ind6 = max(note_ind6-1,0)
-#                         frequency6 = note_freqs[note_ind6]
-#                         update_freq6(screen, frequency6)
-#                         if(terceramenor== True):
-#                             note_ind3 = max(note_ind3-1,5)#para que el tope de la 3menor sea 4 semitonos por debajo de la quinta
-#                             frequency3 = note_freqs[note_ind3]
-#                             update_freq3(screen, frequency3)
-#                         if(tercera== True):  #caso que nunca va a pasar para formar acorde porque no existe pero si que se puede pulsar si se tiene curiosidad                      
-#                             note_ind2 = max(note_ind2-1,4)#para que el tope de la 3 sea 3 semitonos por debajo de la quinta
-#                             frequency2 = note_freqs[note_ind2]
-#                             update_freq2(screen, frequency2)
-                
-                            
-                    
+
+                        update_freq6(screen, frequency6)                                                        
                     
                 if click_in_button(third_button, pos):
                      # Increase the frequency of the note to play
-#                     tercera= True
+
                     print ("Third")
                     
                     note_ind2 = max(note_ind0-4,0)#sumo 4 semitonos=2 tonos
@@ -460,7 +274,7 @@ def triadas_init(screen):
                         
                 if click_in_button(thirdminor_button,pos):
                     print ("Minor Third")
-#                     terceramenor= True
+
                     note_ind3 = max(note_ind0-3,0)#sumo 3 semitonos=1+1/2 tonos
                     frequency3 = note_freqs[note_ind3]
                     print (frequency3)
@@ -469,33 +283,30 @@ def triadas_init(screen):
                     terceramenor= True
                 if click_in_button(fifth_perfect_button, pos):
                      # Increase the frequency of the note to play
-#                     quintaperfecta= True
-                    print ("Perfect Fifth")
 
-                    
+                    print ("Perfect Fifth")                   
                     note_ind4 = max(note_ind0-7,0)#sumo 7 semitonos=2+1+1/2 tonos
                     frequency4 = note_freqs[note_ind4]
                     print (frequency4)
                     update_freq4(screen, frequency4)
                     play_note0(screen, frequency4)
                     quintaperfecta= True
+                    
                 if click_in_button(fifth_diminished_button, pos):
                      # Increase the frequency of the note to play
-#                     quintadisminuida= True
-                    print ("Diminished Fifth")
-                                     
+
+                    print ("Diminished Fifth")                                   
                     note_ind5 = max(note_ind0-6,0)#sumo 6 semitonos=3 tonos
                     frequency5 = note_freqs[note_ind5]
                     print (frequency5)
                     update_freq5(screen, frequency5)
                     play_note0(screen, frequency5)
                     quintadisminuida= True
+                    
                 if click_in_button(fifth_augmented_button, pos):
                      # Increase the frequency of the note to play
-#                     quintaaumentada = True
-                    print ("Augmented Fifth")
-                    
 
+                    print ("Augmented Fifth")                 
                     note_ind6 = max(note_ind0-8,0)#sumo 8 semitonos=2 tonos
                     frequency6 = note_freqs[note_ind6]
                     print (frequency6)
@@ -503,191 +314,6 @@ def triadas_init(screen):
                     play_note0(screen, frequency6)
                     quintaaumentada = True
         
-# def update_freq(screen, freq):
-#     freq_rect = pygame.Rect(200,30,80,20)
-#     freq_rect.center = (200,30)
-#     pygame.draw.rect(screen,white,freq_rect)
-# 
-#     text_surface = button_font.render("%4.0f Hz" % freq, True, black)
-#     freq_button = text_surface.get_rect(center=(200,30))
-#     screen.blit(text_surface, freq_button)
-# 
-#     index = get_note(freq)
-#     note0 = notes_list[index % len(notes_list)]
-#     note_rect = pygame.Rect(0,0,40,20)
-#     note_rect.center = (120,30)
-#     pygame.draw.rect(screen,white,note_rect)
-# 
-#     note_surface = button_font.render(note0, True, black)
-#     note_button = note_surface.get_rect(center=(120,30))
-#     screen.blit(note_surface, note_button)
-# 
-#     freq_true = note_freqs[index]
-#     margin = 0.1
-#     tune_symbol = ' '
-#     if (freq - freq_true > 0):
-#         freq_step = 10
-#         try:
-#             freq_step = note_freqs[index-1]-note_freqs[index]
-#         except:
-#             freq_step = 200.0
-#         if (freq-freq_true)/freq_step > margin:
-#             tune_symbol = '#'
-#     elif (freq - freq_true < 0):
-#         freq_step = 10
-#         try:
-#             freq_step = note_freqs[index]-note_freqs[index+1]
-#         except:
-#             freq_step = 1.6
-#         if (freq-freq_true)/freq_step < -margin:
-#             tune_symbol = 'b'
-# 
-#     tune_rect = pygame.Rect(0,0,40,20)
-#     tune_rect.center = (120, 50)
-#     pygame.draw.rect(screen,white,tune_rect)
-#     sharp_surface = button_font.render(tune_symbol, True, black)
-#     sharp_text = sharp_surface.get_rect(center=(120,50))
-#     screen.blit(sharp_surface, sharp_text)
-# 
-#     pygame.display.flip()            
-# 
-# def update_freq0(screen, freq):
-#     freq_rect = pygame.Rect(200,30,80,20)
-#     freq_rect.center = (130,30)
-#     pygame.draw.rect(screen,white,freq_rect)
-# 
-#     text_surface = button_font.render("%4.0f Hz" % freq, True, black)
-#     freq_button = text_surface.get_rect(center=(130,30))
-#     screen.blit(text_surface, freq_button)
-# 
-#     index = get_note(freq)
-#     note0 = notes_list[index % len(notes_list)]
-#     note_rect = pygame.Rect(0,0,40,20)
-#     note_rect.center = (80,30)
-#     pygame.draw.rect(screen,white,note_rect)
-# 
-#     note_surface = button_font.render(note0, True, black)
-#     note_button = note_surface.get_rect(center=(80,30))
-#     screen.blit(note_surface, note_button)
-# 
-#     freq_true = note_freqs[index]
-#     margin = 0.1
-#     tune_symbol = ' '
-#     if (freq - freq_true > 0):
-#         freq_step = 10
-#         try:
-#             freq_step = note_freqs[index-1]-note_freqs[index]
-#         except:
-#             freq_step = 200.0
-#         if (freq-freq_true)/freq_step > margin:
-#             tune_symbol = '#'
-#     elif (freq - freq_true < 0):
-#         freq_step = 10
-#         try:
-#             freq_step = note_freqs[index]-note_freqs[index+1]
-#         except:
-#             freq_step = 1.6
-#         if (freq-freq_true)/freq_step < -margin:
-#             tune_symbol = 'b'
-# 
-#     tune_rect = pygame.Rect(0,0,40,20)
-#     tune_rect.center = (80, 50)
-#     pygame.draw.rect(screen,white,tune_rect)
-#     sharp_surface = button_font.render(tune_symbol, True, black)
-#     sharp_text = sharp_surface.get_rect(center=(80,50))
-#     screen.blit(sharp_surface, sharp_text)
-# 
-#     pygame.display.flip()
-# def update_freq2(screen, freq):
-#     freq_rect = pygame.Rect(200,30,80,20)
-#     freq_rect.center = (130,70)
-#     pygame.draw.rect(screen,white,freq_rect)
-# 
-#     text_surface = button_font.render("%4.0f Hz" % freq, True, black)
-#     freq_button = text_surface.get_rect(center=(130,70))
-#     screen.blit(text_surface, freq_button)
-# 
-#     index = get_note(freq)
-#     note2 = notes_list[index % len(notes_list)]
-#     note_rect = pygame.Rect(0,0,40,20)
-#     note_rect.center = (80,70)#cambio de 120 a 100
-#     pygame.draw.rect(screen,white,note_rect)
-# 
-#     note_surface = button_font.render(note2, True, black)
-#     note_button = note_surface.get_rect(center=(80,70))#cambio de 120 a 100
-#     screen.blit(note_surface, note_button)
-# 
-#     freq_true = note_freqs[index]
-#     margin = 0.1
-#     tune_symbol = ' '
-#     if (freq - freq_true > 0):
-#         freq_step = 10
-#         try:
-#             freq_step = note_freqs[index-1]-note_freqs[index]
-#         except:
-#             freq_step = 200.0
-#         if (freq-freq_true)/freq_step > margin:
-#             tune_symbol = '#'
-#     elif (freq - freq_true < 0):
-#         freq_step = 10
-#         try:
-#             freq_step = note_freqs[index]-note_freqs[index+1]
-#         except:
-#             freq_step = 1.6
-#         if (freq-freq_true)/freq_step < -margin:
-#             tune_symbol = 'b'
-# 
-#     tune_rect = pygame.Rect(0,0,40,20)
-#     tune_rect.center = (80, 90)#cambio de 120 a 100
-#     pygame.draw.rect(screen,white,tune_rect)
-#     sharp_surface = button_font.render(tune_symbol, True, black)
-#     sharp_text = sharp_surface.get_rect(center=(80,90))#cambio de 120 a 100
-#     screen.blit(sharp_surface, sharp_text)
-# 
-#     pygame.display.flip()
-# def play_note(screen, freq):
-# 
-#     play_button = show_botton(screen, "Stop Note", (160,160), (80,40), white, button_font)
-#     playing = True
-#     tone = Note(freq)
-#     tone.play(-1)
-#     while playing:
-#         time.sleep(0.2)
-#         for action in pygame.event.get():
-#             if (action.type is MOUSEBUTTONUP):
-#                 pos = pygame.mouse.get_pos()
-#                 if click_in_button(play_button,pos):
-#                     playing = False                    
-#     
-#     tone.stop()
-#     
-#     play_button =show_botton(screen, "Start Note", (160,160), (80,40), white, button_font)    
-
-# def play_note0(screen, freq):
-#     play_button = show_botton(screen, "Stop Note", (40,210), (70,40), white, button_font)
-#     playing = True
-#     tone = Note(freq)
-#     tone.play(-1)
-#     while playing:
-#         time.sleep(0.2)
-#         for action in pygame.event.get():
-#             if (action.type is MOUSEBUTTONUP):
-#                 pos = pygame.mouse.get_pos()
-#                 if click_in_button(play_button,pos):
-#                     playing = False
-#                     
-#     
-#     tone.stop()
-#     
-# #     play_button =show_botton(screen, "Start Note", (160,160), (80,40), white, button_font)
-
-# determine what note is being received
-# the frequency must be greater than 0
-# def get_note(freq):
-#     for i in range(len(note_thrsh)):
-#         if freq > note_thrsh[i]:
-#             return i
-#     return "Not valid"
 
 
 
