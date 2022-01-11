@@ -17,12 +17,11 @@ import pyaudio
 import math
 import itertools
 from metodosparatunertriadas import *
-# import metodosparatunertriadas
 from triadas import *
 #from itertools import zip
 #from itertools import izip
 from tone_player import Note
-# from main_menu import main_init
+
 # 
 # frequency = 440 # initial note frequency
 # frequency2= 554.37
@@ -61,7 +60,7 @@ from tone_player import Note
 #                 44.95, 42.43, 40.05, 37.8, 35.68, 33.68,
 #                 31.79, 30, 28.32, 0]
 # notes_list = ["C", "B", "Bb", "A", "Ab", "G", "F#", "F", "E", "Eb", "D", "C#"]
-# third = False
+
 # displays and sets up the tuner menu
 def tuner_init(screen):
     global frequency
@@ -73,7 +72,7 @@ def tuner_init(screen):
     global freq
     triada = False
     screen.fill(white)
-#     navi = main_init(screen)
+
     # Render and display all visual elements
     listen_button = show_botton(screen, "Start Listening", (160, 110), (120,40), white, button_font)
     play_button = show_botton(screen, "Play Note", (160,160), (80,40), white, button_font)
@@ -111,9 +110,9 @@ def tuner_init(screen):
                     return True
                 if click_in_button(listen_button, pos):
                     print ("Listening")
-#                     update_freq(screen,frequency)
+
                     start_listening(screen)
-#                     update_freq(screen,frequency)
+
                 if click_in_button(play_button, pos):
                     # Play the specified note
                     print ("Play note")
@@ -125,22 +124,21 @@ def tuner_init(screen):
                     note_ind = min(note_ind+1,len(note_thrsh)-1)
                     frequency = note_freqs[note_ind]
                     update_freq(screen, frequency)
-#                     frequencytuner = frequency
+
                 if click_in_button(plus_button, pos):
                     # Increase the frequency of the note to play
                     print ("+")
                     note_ind = max(note_ind-1,0)
                     frequency = note_freqs[note_ind]
                     update_freq(screen, frequency)
-#                     frequencytuner = frequency
+
                 if click_in_button(triada_button, pos):
-#                      # Increase the frequency of the note to play
+                    # Increase the frequency of the note to play
                      print ("Triada")
                      triadas_init(screen)
                      frequency=440
                      note_ind=39
-#                      frequency2= 6666#554.37
-#                      note2= "C#ityum"
+
 # update the frequency display
 # def update_freq(screen, freq):
 #     
