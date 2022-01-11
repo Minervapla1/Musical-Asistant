@@ -335,14 +335,7 @@ def metro_init(screen):
                 
                 ticking10 = False    
             
-#             if (period_time4 < 0.1/4) and not ticking:
-#                 pygame.draw.circle(screen, green, (130,30), 10)
-#                 subprocess.call(cmd2, shell=True)
-#                 ticking = True
-# 
-#             if (period_time4 >= 0.1/4) and ticking:
-#                 pygame.draw.circle(screen, white, (1300,30), 10)
-#                 ticking = False
+
     
     return True
     
